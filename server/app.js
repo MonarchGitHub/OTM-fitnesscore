@@ -5,15 +5,13 @@ const path = require('path');
 const fs = require('fs');
 const csv = require('csv-parser');
 
-// Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 
 app.get("/api", (req, res) => {
-    res.send({ message: "Shix working" });
+    res.send({ message: "connection working" });
 });
 
-// Serve the CSV file
 app.get('/api/csv', (req, res) => {
 
     // const [coreScore, setCoreScore] = useState({});
@@ -32,12 +30,6 @@ app.get('/api/csv', (req, res) => {
 
             if (data._id == userID) {
                 console.log("server" + data.code);
-
-                // results.push(data.code);
-                // console.log(data.improvement);
-                // console.log(data.scorePerCategory);
-                // console.log(data);
-
                 results.push(data);
             }
 

@@ -1,48 +1,57 @@
 import React from 'react'
 
 const Compare = () => {
+
+    const comparisonData = [
+        { title: '01', aValue: 85, bValue: 70 },
+        { title: '02', aValue: 65, bValue: 40 },
+        { title: '03', aValue: 25, bValue: 90 },
+        { title: '04', aValue: 90, bValue: 25 },
+        { title: '05', aValue: 40, bValue: 65 },
+        { title: '06', aValue: 70, bValue: 65 },
+    ];
+
     return (
         <>
-            <section className="text-gray-600 body-font">
-                <div className="container px-5 py-24 mx-auto">
-                    <div className="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-                        <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Pitchfork Kickstarter Taxidermy</h1>
-                        <p className="lg:w-1/2 w-full leading-relaxed text-gray-500">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table.</p>
+
+            <div className="flex flex-col items-center justify-center h-screen">
+                <div className=" shadow-lg rounded-lg p-8 w-full max-w-4xl">
+                    <h1 className="text-2xl font-bold mb-4">Comparison Infographic</h1>
+                    <div className="grid grid-cols-3 gap-4">
+                        <div className="col-span-1 flex flex-col items-center">
+                            <span className="text-gray-500 text-sm">A Element</span>
+                        </div>
+                        <div className="col-span-1 flex flex-col items-center">
+                            <span className="text-gray-500 text-sm">VS</span>
+                        </div>
+                        <div className="col-span-1 flex flex-col items-center">
+                            <span className="text-gray-500 text-sm">B Element</span>
+                        </div>
+                        {comparisonData.map((item, index) => (
+                            <div key={index} className="col-span-1 flex flex-col items-center">
+                                <span className="text-gray-500 text-sm">{item.title}</span>
+                                <div className="h-6 w-full bg-gray-200 rounded-full mt-2">
+                                    <div
+                                        className={`h-full bg-green-500 rounded-full`}
+                                        style={{ width: `${item.aValue}%` }}
+                                    ></div>
+                                </div>
+                            </div>
+                        ))}
+                        {comparisonData.map((item, index) => (
+                            <div key={index + 'b'} className="col-span-1 flex flex-col items-center">
+                                <div className="h-6 w-full bg-gray-200 rounded-full mt-2">
+                                    <div
+                                        className={`h-full bg-green-500 rounded-full`}
+                                        style={{ width: `${item.bValue}%` }}
+                                    ></div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
-                    <div className="flex flex-wrap -m-4">
-                        <div className="xl:w-1/3 md:w-1/2 p-4">
-                            <div className="border border-gray-200 p-6 rounded-lg">
-                                <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-
-                                </div>
-                                <h2 className="text-lg text-gray-900 font-medium title-font mb-2">Shooting Stars</h2>
-                                <p className="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
-                            </div>
-                        </div>
-                        <div className="xl:w-1/3 md:w-1/2 p-4">
-                            <div className="border border-gray-200 p-6 rounded-lg">
-                                <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-
-                                </div>
-                                <h2 className="text-lg text-gray-900 font-medium title-font mb-2">The Catalyzer</h2>
-                                <p className="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
-                            </div>
-                        </div>
-                        <div className="xl:w-1/3 md:w-1/2 p-4">
-                            <div className="border border-gray-200 p-6 rounded-lg">
-                                <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-
-                                </div>
-                                <h2 className="text-lg text-gray-900 font-medium title-font mb-2">Neptune</h2>
-                                <p className="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <button className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
                 </div>
-            </section>
+            </div>
+
         </>
 
     )

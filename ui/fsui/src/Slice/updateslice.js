@@ -5,7 +5,6 @@ const initialState = {
 }
 
 
-
 export const updateslice = createSlice({
     name: 'update',
     initialState,
@@ -21,6 +20,6 @@ export const updateslice = createSlice({
     }
 })
 
-export const { addTodo, removeTodo } = todoSlice.actions
+export const { addUpdate } = todoSlice.actions
 
-export default todoSlice.reducer
+export default updateslice.reducer
